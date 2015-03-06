@@ -1,0 +1,71 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+				Filter Criteria
+    </div>
+    <div class="panel-body">
+        <div class="row clearfix">
+
+          <div class="col-md-3 column">
+              <p style="margin:3px"><b>Assembly Plant</b></p>
+              <div ng-dropdown-multiselect="" options="Plantdata" selected-model="Plantmodel" extra-settings="MSsettings"></div>
+          </div>
+          <div class="col-md-3 column">
+              <p style="margin:3px"><b>Technical Model Year</b></p>
+              <div ng-dropdown-multiselect="" options="TMYdata" selected-model="TMYmodel" extra-settings="MSsettings"></div>
+          </div>
+          <div class="col-md-3 column">
+              <p style="margin:3px"><b>Model Type</b></p>
+              <div ng-dropdown-multiselect="" options="Modeldata" selected-model="Modelmodel" extra-settings="MSsettings"></div>
+          </div>
+          <div class="col-md-3 column">
+              <p style="margin:3px"><b>VRT</b></p>
+              <div ng-dropdown-multiselect="" options="VRTdata" selected-model="VRTmodel" extra-settings="MSsettings" ></div>
+          </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 column">
+                <p style="margin:3px"><b>Legend</b></p>   
+<div class="input-group input-append dropdown combobox" data-initialize="combobox" id="legendBox">
+  <input type="text" class="form-control">
+  <div class="input-group-btn">
+    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+    <ul class="dropdown-menu dropdown-menu-right">
+      <li data-value="1" data-selected="true"><a href="#">Tech MY</a></li>
+      <li data-value="2"><a href="#">Assy Plant</a></li>
+      <li data-value="3"><a href="#">Vehicle Type</a></li>
+      <li data-value="4"><a href="#">VRT</a></li>
+    </ul>
+  </div>
+</div>
+            </div>
+        </div>
+
+      <div class="row">
+        <div class="col-md-3 column">
+          <div class="btn-group">
+              <button type="button" class="btn btn-primary" style="margin:10px" ng-click="applyFilter()">Apply Filter</button>
+          </div>
+        </div>
+      </div>
+        
+
+
+    </div>
+</div>
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+				Actual vs Target - 3MIS
+    </div>
+    <div class="panel-body">
+
+        <div class="row clearfix">
+          <div class="col-md-12 column">
+
+              <div id="container1" style="width: 100%; height: 480px;"></div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+</div>

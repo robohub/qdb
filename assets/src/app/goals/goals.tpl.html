@@ -1,0 +1,53 @@
+
+    <div class="panel panel-primary">
+        
+        <div class="panel-heading">
+            <h3 class="panel-title">
+            Fuel UX testarea
+            </h3>
+        </div>
+
+        <div class="panel-body">
+            <div class="spinbox" data-initialize="spinbox" id="mySpinbox">
+              <input type="text" class="form-control input-mini spinbox-input">
+              <div class="spinbox-buttons btn-group btn-group-vertical">
+                <button type="button" class="btn btn-default spinbox-up btn-xs">
+                  <span class="glyphicon glyphicon-chevron-up"></span><span class="sr-only">Increase</span>
+                </button>
+                <button type="button" class="btn btn-default spinbox-down btn-xs">
+                  <span class="glyphicon glyphicon-chevron-down"></span><span class="sr-only">Decrease</span>
+                </button>
+              </div>
+            </div>
+        </div>
+        <div class="panel-heading">
+            <h3 class="panel-title">
+            Strategy map
+            </h3>
+        </div>
+
+        <div class="panel-body">
+            <div class="btn-group btn-group-sm">
+                <button class="btn btn-default" ng-click="model.addObjective()">
+                    <i class="fa fa-star"> Add Objective</i>
+                </button>           
+                <button class="btn btn-default" ng-click="model.zoomIn()">
+                    <i class="fa fa-plus-circle"> Zoom in</i>
+                </button>
+                <button class="btn btn-default" ng-click="model.zoomOut()">
+                    <i class="fa fa-minus-circle"> Zoom out</i>
+                </button>
+                <button class="btn btn-default" ng-click="model.clear()">
+                    <i class="fa fa-eraser"> Clear</i>
+                </button>
+                <button class="btn btn-default" ng-click="model.save()">
+                    <i class="fa fa-save"> Save</i>
+                </button>
+                <button class="btn btn-default" ng-click="model.load()">
+                    <i class="fa fa-upload"> Load</i>
+                </button>
+            </div>
+            <div id="paper" class="paper"></div>
+        </div>
+
+    </div>

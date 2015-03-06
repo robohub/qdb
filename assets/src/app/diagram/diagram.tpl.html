@@ -1,0 +1,58 @@
+
+
+    <div class="col-md-4 column">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                    Structure
+                </h3>
+            </div>
+            <div class="panel-body">
+                <div id="tree">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-8 column">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                    Diagram
+                </h3>
+            </div>
+            <div class="panel-body">
+                <div class="btn-group btn-group-sm">
+                    <button class="btn btn-primary" ng-click="model.addOrganization()">
+                        <i class="fa fa-star"> Add Organization</i>
+                    </button>           
+                    <button class="btn btn-default" ng-click="model.addProcess()">
+                        <i class="fa fa-star"> Add Process</i>
+                    </button>        
+                    <button class="btn btn-default" ng-click="model.addLink()">
+                        <i class="fa fa-link"> Add link</i>
+                    </button>
+                    <button class="btn btn-default" ng-click="model.zoomIn()">
+                        <i class="fa fa-plus-circle"> Zoom in</i>
+                    </button>
+                    <button class="btn btn-default" ng-click="model.zoomOut()">
+                        <i class="fa fa-minus-circle"> Zoom out</i>
+                    </button>
+                    <button class="btn btn-default" ng-click="model.clear()">
+                        <i class="fa fa-eraser"> Clear</i>
+                    </button>
+                    <button class="btn btn-default" ng-click="model.save()">
+                        <i class="fa fa-save"> Save</i>
+                    </button>
+                    <button class="btn btn-default" ng-click="model.load()">
+                        <i class="fa fa-upload"> Load</i>
+                    </button>                  
+                    <!-- <button class="btn btn-default" onclick='window.open("http://127.0.0.1:1337/api/excel", "_blank");'> -->
+                    <button class="btn btn-default" onclick='window.open("/api/excel", "_blank");'>
+                        <i class="fa fa-upload"> Open Excel</i>
+                    </button>
+                </div>
+                <div id="paper" class="paper"></div>
+            </div>
+        </div>
+    </div>
+
