@@ -29,7 +29,12 @@
     "bcryptjs": "~2.1.0",
     "validator": "~3.28.0",
     "sails-generate-auth": "~0.2.0",
-    "excel-report": "~0.0.3"
+    "bluebird": "~2.9.4",
+    "excel-report": "~0.0.3",
+    "sharepoint-api": "~1.0.5",
+    "oriento": "~1.1.0",
+    "xlsx-to-json": "0.2.3"
+      
   },
   "scripts": {
     "start": "node app.js",
