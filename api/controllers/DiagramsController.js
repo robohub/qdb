@@ -9,7 +9,7 @@ console.log("----DIAGRAMCONTROLLER require robdb....db = ", robDB.db);
 var excelReport = require("../../node_modules/excel-report/excelReport");
 
 
-var excelbuilder = require('msexcel-builder');
+//var excelbuilder = require('msexcel-builder');
 
 
 module.exports = {
@@ -19,37 +19,62 @@ module.exports = {
 
 //
 // TODO: check credentials since a hacker can go directly to /api/excel !!!
-// OBS! Hard code path to 'template.xlsx' !!!
+// 
 //
-        
-        var data = {
-            title: 'Voucher List',
-            company: 'STP software',
-            address: '56, 13C Street, Binh Tri Dong B ward, Binh Tan district, Ho Chi Minh City',
-            user_created: 'TRUONGPV'
-        }
 
-        data.table1 = [
-            { date: new Date(Date.UTC(2015,0,13)), number: 1, description: 'description 1', qty: 10, jobNo: 100, roNo: '234 094'},
-            { date: new Date(Date.UTC(2015,0,14)), number: 2, description: 'description 2', qty: 20, jobNo: 101, roNo: '234 095'},
-            { date: new Date(Date.UTC(2015,0,14)), number: 5, description: 'description 2', qty: 30, jobNo: 102, roNo: '234 098'}
-        ]
+        var jlc = require('./JobListController');
+        jlc.serverGetAll().then(function (joblist) {
+            console.log('---- Loaded joblist:');
 
-        //var template_file ='/Users/robert/Documents/Development/sailng/node_modules/excel-report/example/template.xlsx';
-        var template_file ='./template.xlsx';
-
-        excelReport(template_file, data, function(error, binary) {
-            if (error){
-                res.writeHead(400, {'Content-Type': 'text/plain'});
-                res.end(error);
-console.log("ERROR EXCEL: ", error);
-                return
+            var data = {
+                title: 'Joblist',
+                company: 'VCC',
+                address: 'Torslanda',
+                user_created: 'Dennis W'
             }
-console.log("SKICKAR EXCEL: ");
-            res.set('Content-Type', 'application/vnd.openxmlformats');
-            res.set("Content-Disposition", "attachment; filename=report.xlsx");
-            res.end(binary, 'binary');
+            
+            var rows = [];
+       
+            for (var i = 0; i < joblist.length; i++) {
+
+                var row = { 
+                    dealer: joblist[i]["RepairingDealer"],
+                    vType: joblist[i]["VehicleFamily"],
+                    vVariant: joblist[i]["VehicleVariant"],
+                    roNo: joblist[i]["RepairOrderNo"],
+                    roSfx: joblist[i]["RepairOrderSuffix"],
+                    mainOp: joblist[i]["MainOperationDesc"],
+                    repDate: joblist[i]["RepairDate"],
+                    VIN: joblist[i]["VIN"],
+                    jobNo: joblist[i]["JobNo"],
+                    VRT: joblist[i]["VRT"],
+                    CSC: joblist[i]["CSC"],
+                    CCC: joblist[i]["CCC"]
+                };
+
+                rows.push(row);
+            }
+            data.table1 = rows;
+            
+            var template_file ='./qdb joblist template.xlsx';
+
+            excelReport(template_file, data, function(error, binary) {
+                if (error){
+                    res.writeHead(400, {'Content-Type': 'text/plain'});
+                    res.end(error);
+    console.log("ERROR EXCEL: ", error);
+                    return
+                }
+    console.log("SKICKAR EXCEL: ");
+                res.set('Content-Type', 'application/vnd.openxmlformats');
+                res.set("Content-Disposition", "attachment; filename=report.xlsx");
+                res.end(binary, 'binary');
+            }); 
+        })
+        .catch(function(err) {
+            console.log('---- Error loading joblist:');
         });
+
  /*
         console.log("SKAPAR EXCEL: ");
               // Create a new workbook file in current working-path 

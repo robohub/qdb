@@ -13,15 +13,50 @@ angular.module( 'beam.joblist', [
 	});
 })
 
-.controller( 'JoblistCtrl', function JobListController(JoblistRest, $scope, titleService) {
+.controller( 'JoblistCtrl', function JobListController(JoblistRest, $scope, titleService,    utils, $sailsSocket, $http) {
 	titleService.setTitle('Joblist');
-    
+
+        var url = utils.prepareUrl('joblist');
+
+        $sailsSocket.get(url)
+        .success(function(model) {
+            $scope.myItems = model;
+        })
+        .error(function(err) {
+            var x = err;
+        });
+
+ /*       
     JoblistRest.getAll().then(function(list) {
         $scope.myItems = list;
     })
     .catch(function(err) {
         alert("ERROR: " + err);
-    });
+    });*/
+
+
+/*    
+  $scope.myData = [
+    {
+        "firstName": "Cox",
+        "lastName": "Carney",
+        "company": "Enormo",
+        "employed": true
+    },
+    {
+        "firstName": "Lorraine",
+        "lastName": "Wise",
+        "company": "Comveyer",
+        "employed": false
+    },
+    {
+        "firstName": "Nancy",
+        "lastName": "Waters",
+        "company": "Fuelton",
+        "employed": false
+    }
+];
+*/
 /*
     $scope.myItems = [
         { jobNo : 1, roNo : 'x' ,roSuffix : 1, entryDate : 'x', repairDate : 1, partNo : 'x', failPart : 1, mainOp : 'x', mainOpDesc : 1, totCost : 'x', matCost : 1, labCost : 'x', }, 

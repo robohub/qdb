@@ -24,7 +24,7 @@ console.log("ROBDB object: ", robDB);
   xlsxj = require("xlsx-to-json");
   xlsxj({
     input: "Joblist.xlsx", 
-    output: "output.json"
+    output: null
   }, function(err, result) {
     if(err) {
       console.error(err);

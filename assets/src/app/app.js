@@ -19,7 +19,9 @@ angular.module( 'qdb', [
     'beam.toplist',
     'beam.joblist',
     'angularjs-dropdown-multiselect',
-    'trNgGrid'
+    'trNgGrid',
+    'ui.grid',
+    'ui.grid.resizeColumns'
 ])
 
 .config( function myAppConfig ( $stateProvider, $urlRouterProvider, $locationProvider ) {

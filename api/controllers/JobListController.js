@@ -17,6 +17,12 @@ module.exports = {
         });
     },
     
+    serverGetAll : function() {
+        console.log("SERVER HÄMTAR ALLA");  
+        
+        return robDB.getdb().select().from('joblist').all();
+
+    },
     
     save: function(data) {
         console.log("Ska spara json till databasen...");

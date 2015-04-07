@@ -16,7 +16,19 @@ angular.module( 'beam.home', [
 .controller( 'HomeCtrl', function HomeController( $scope, titleService ) {
 	titleService.setTitle('Home');
     
-
+    $scope.changeTview = function() {
+            chart2.validateData();
+            chart2.animateAgain();
+    }
+    $scope.changeGview = function() {
+            chart3.validateData();
+            chart3.animateAgain();
+    }
+    $scope.changeCDview = function() {
+            chart4.validateData();
+            chart4.animateAgain();
+    }
+    
     chart = new AmCharts.AmSerialChart();
 		chart.startDuration = 0.5;
 		chart.categoryField = "category";
@@ -297,110 +309,6 @@ angular.module( 'beam.home', [
 					];
 					
 		chart4.write('cdfaildiadiv');
-
-/*
-		chart3 = new AmCharts.AmSerialChart();
-		chart3.startDuration = 0.5;
-		chart3.categoryField = "category";
-		chart3.categoryAxis.gridThickness = 0;
-		
-		var graph = new AmCharts.AmGraph();
-		graph.valueField = "target";
-		graph.type = "column";
-		graph.fillAlphas = 1;
-		graph.title = "Target";
-		graph.balloonText = "[[title]] of [[category]]: <b>[[value]]</b>";
-		graph.columnWidth = 0.4;
-		graph.newStack = true;
-		chart3.addGraph(graph);	
-		
-		var graph = new AmCharts.AmGraph();
-		graph.valueField = "actual";
-		graph.type = "column";
-		graph.fillAlphas = 1;
-		graph.title = "Actual";
-		graph.balloonText = "[[title]] of [[category]]: <b>[[value]]</b>";
-		graph.columnWidth = 0.2;
-		graph.newStack = true;
-		chart3.addGraph(graph);
-		
-		//var leg = new AmCharts.AmLegend();
-		//leg.align = "center";
-		//chachart2rt.addLegend(leg);
-
-		var vaxis = new AmCharts.ValueAxis();
-		vaxis.id = "v1";
-		vaxis.title = "R/1000";
-		chart3.addValueAxis(vaxis);
-		
-		chart3.titles = [
-			{
-				"bold": true,
-				"id": "title",
-				"size": 13,
-				"text": "VCC - F02 - 2012 - Results @ 3MIS"
-			}];
-		chart3.dataProvider = [
-						{
-							"category": "C30",
-							"target": "90",
-							"actual": "111"
-						},
-						{
-							"category": "C70",
-							"target": "145",
-							"actual": "122"
-						},
-						{
-							"category": "S40",
-							"target": "80",
-							"actual": "101"
-						},
-						{
-							"category": "S60",
-							"target": "160",
-							"actual": "138"
-						},
-						{
-							"category": "S80",
-							"target": "135",
-							"actual": "160"
-						},
-						{
-							"category": "V50",
-							"target": "100",
-							"actual": "141"
-						},
-						{
-							"category": "V60",
-							"target": "165",
-							"actual": "161"
-						},
-						{
-							"category": "V70",
-							"target": "135",
-							"actual": "187"
-						},
-						{
-							"category": "XC60",
-							"target": "160",
-							"actual": "226"
-						},
-						{
-							"category": "XC70",
-							"target": "150",
-							"actual": "203"
-						},
-						{
-							"category": "XC90",
-							"target": "150",
-							"actual": "160"
-						}
-					];
-					
-		chart3.write('chartdiv3');
-		
-	*/	
 		
 		perdia1 = new AmCharts.AmSerialChart();
 		perdia1.startDuration = 0.5;

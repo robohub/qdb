@@ -21,4 +21,7 @@ module.exports = {
   //   connection: 'someMongodbServer'
   // }
 
+  // JELASTIC:
+  // port : 8080
+
 };
