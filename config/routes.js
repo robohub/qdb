@@ -78,6 +78,21 @@ module.exports.routes = {
     'get /goals': 'HomeController.index',
     'get /analysis': 'HomeController.index',
     'get /toplist': 'HomeController.index',
-    'get /joblist': 'HomeController.index'
+    'get /joblist': 'HomeController.index',
+    'get /faildiaDrillDown': 'HomeController.index',
+    'get /faildiaVCCDrillDown': 'HomeController.index',
+    'get /faildiaAPvrtDrillDown': 'HomeController.index',
+    'get /faildiaAPvlDrillDown': 'HomeController.index',
+    'get /faildiaAPVCGvrtDrilldown': 'HomeController.index',
+    'get /faildiaAPVCGvlDrilldown': 'HomeController.index',
+    'get /faildiaAPVCCDvrtDrilldown': 'HomeController.index',
+    'get /faildiaAPVCCDvlDrilldown': 'HomeController.index',
+    'get /perdiaBreakdown': 'HomeController.index',
+    'get /perdiaVrtDrillDown': 'HomeController.index',
+    'get /perdiaVlDrillDown': 'HomeController.index',
+    'get /perdiaAPVCGvrtDrilldown': 'HomeController.index',
+    'get /perdiaAPVCGvlDrilldown': 'HomeController.index',
+    'get /perdiaAPVCCDvrtDrilldown': 'HomeController.index',
+    'get /perdiaAPVCCDvlDrilldown': 'HomeController.index'
 
 };

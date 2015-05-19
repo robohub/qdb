@@ -13,23 +13,36 @@ angular.module( 'beam.home', [
 	});
 })
 
-.controller( 'HomeCtrl', function HomeController( $scope, titleService ) {
+.controller( 'HomeCtrl', function HomeController( $scope, $location, titleService, DiagramHeaders ) {
 	titleService.setTitle('Home');
     
+    var isTvehicle = true;
+    var isGvehicle = true;
+    var isCDvehicle = true;
+    
     $scope.changeTview = function() {
-            chart2.validateData();
-            chart2.animateAgain();
+        if (!isTvehicle)
+            showTvehicle()
+        else
+            showTvrt();
+        isTvehicle = !isTvehicle;
     }
     $scope.changeGview = function() {
-            chart3.validateData();
-            chart3.animateAgain();
+        if (!isGvehicle)
+            showGvehicle()
+        else
+            showGvrt();
+        isGvehicle = !isGvehicle;
     }
     $scope.changeCDview = function() {
-            chart4.validateData();
-            chart4.animateAgain();
+        if (!isCDvehicle)
+            showCDvehicle()
+        else
+            showCDvrt();
+        isCDvehicle = !isCDvehicle;
     }
     
-    chart = new AmCharts.AmSerialChart();
+    var chart = new AmCharts.AmSerialChart();
 		chart.startDuration = 0.5;
 		chart.categoryField = "category";
 		chart.categoryAxis.gridThickness = 0;
@@ -95,10 +108,12 @@ angular.module( 'beam.home', [
 							"actual": "161"
 						}
 					];
-					
+    
 		chart.write('chartdiv');
-		
-		chart2 = new AmCharts.AmSerialChart();
+    chart.addListener("clickGraphItem", clickVCCFaildia);
+
+    
+		var chart2 = new AmCharts.AmSerialChart();
 		chart2.startDuration = 0.5;
 		chart2.categoryField = "category";
 		chart2.categoryAxis.gridThickness = 0;
@@ -111,8 +126,9 @@ angular.module( 'beam.home', [
 		graph.balloonText = "[[title]] of [[category]]: <b>[[value]]</b>";
 		graph.columnWidth = 0.4;
 		graph.newStack = true;
-		chart2.addGraph(graph);	var graph = new AmCharts.AmGraph();
-		
+		chart2.addGraph(graph);
+    
+    var graph = new AmCharts.AmGraph();
 		graph.valueField = "actual";
 		graph.type = "column";
 		graph.fillAlphas = 1;
@@ -122,54 +138,114 @@ angular.module( 'beam.home', [
 		graph.newStack = true;
 		chart2.addGraph(graph);
 		
-
-		
-		//var leg = new AmCharts.AmLegend();
-		//leg.align = "center";
-		//chachart2rt.addLegend(leg);
-
 		var vaxis = new AmCharts.ValueAxis();
 		vaxis.id = "v1";
 		vaxis.title = "R/1000";
 		chart2.addValueAxis(vaxis);
+    
+    showTvehicle();
 		
-		chart2.dataProvider = [
-						{
-							"category": "VCT",
-							"target": "151",
-							"actual": "175"
-						},
-						{
-							"category": "S80",
-							"target": "135",
-							"actual": "156"
-						},
-						{
-							"category": "V60",
-							"target": "165",
-							"actual": "153"
-						},
-						{
-							"category": "V70",
-							"target": "135",
-							"actual": "172"
-						},
-						{
-							"category": "XC70",
-							"target": "150",
-							"actual": "187"
-						},
-						{
-							"category": "XC90",
-							"target": "150",
-							"actual": "157"
-						}
-					];
-					
-		chart2.write('tfaildiadiv');
-		
-		
-		chart3 = new AmCharts.AmSerialChart();
+    function showTvehicle() {
+        chart2.dataProvider = [
+                {
+                  "category": "VCT",
+                  "target": "151",
+                  "actual": "175"
+                },
+                {
+                  "category": "S80",
+                  "target": "135",
+                  "actual": "156"
+                },
+                {
+                  "category": "S60",
+                  "target": "130",
+                  "actual": "90"
+                },
+                {
+                  "category": "V60",
+                  "target": "165",
+                  "actual": "153"
+                },
+                {
+                  "category": "V60CC",
+                  "target": "180",
+                  "actual": "150"
+                },
+                {
+                  "category": "V70",
+                  "target": "135",
+                  "actual": "172"
+                },
+                {
+                  "category": "XC70",
+                  "target": "150",
+                  "actual": "187"
+                },
+                {
+                  "category": "XC90",
+                  "target": "150",
+                  "actual": "157"
+                }
+              ];
+
+        chart2.write('tfaildiadiv');
+        chart2.validateData();
+        chart2.animateAgain();
+    }
+    chart2.addListener("clickGraphItem", clickTFaildia);
+		    
+    function showTvrt() {
+        chart2.dataProvider = [
+                {
+                  "category": "VCT",
+                  "target": "151",
+                  "actual": "175"
+                },
+                {
+                  "category": "F02",
+                  "target": "135",
+                  "actual": "156"
+                },
+                {
+                  "category": "F03",
+                  "target": "165",
+                  "actual": "153"
+                },
+                {
+                  "category": "F04",
+                  "target": "135",
+                  "actual": "172"
+                },
+                {
+                  "category": "F05",
+                  "target": "150",
+                  "actual": "187"
+                },
+                {
+                  "category": "F06",
+                  "target": "150",
+                  "actual": "157"
+                },
+                {
+                  "category": "F07",
+                  "target": "135",
+                  "actual": "156"
+                },
+                {
+                  "category": "F08",
+                  "target": "165",
+                  "actual": "153"
+                },
+              ];
+
+        chart2.write('tfaildiadiv');
+        chart2.validateData();
+        chart2.animateAgain();
+    }
+
+            
+		var chart3 = new AmCharts.AmSerialChart();
 		chart3.startDuration = 0.5;
 		chart3.categoryField = "category";
 		chart3.categoryAxis.gridThickness = 0;
@@ -182,8 +258,9 @@ angular.module( 'beam.home', [
 		graph.balloonText = "[[title]] of [[category]]: <b>[[value]]</b>";
 		graph.columnWidth = 0.4;
 		graph.newStack = true;
-		chart3.addGraph(graph);	var graph = new AmCharts.AmGraph();
-		
+		chart3.addGraph(graph);	
+    
+    var graph = new AmCharts.AmGraph();
 		graph.valueField = "actual";
 		graph.type = "column";
 		graph.fillAlphas = 1;
@@ -194,17 +271,15 @@ angular.module( 'beam.home', [
 		chart3.addGraph(graph);
 		
 
-		
-		//var leg = new AmCharts.AmLegend();
-		//leg.align = "center";
-		//chachart2rt.addLegend(leg);
-
 		var vaxis = new AmCharts.ValueAxis();
 		vaxis.id = "v1";
 		vaxis.title = "R/1000";
 		chart3.addValueAxis(vaxis);
 		
-		chart3.dataProvider = [
+    showGvehicle();
+    
+    function showGvehicle() {
+		      chart3.dataProvider = [
 						{
 							"category": "VCG",
 							"target": "138",
@@ -236,11 +311,63 @@ angular.module( 'beam.home', [
 							"actual": "206"
 						}
 					];
-					
-		chart3.write('gfaildiadiv');
-		
-		
-		chart4 = new AmCharts.AmSerialChart();
+        chart3.write('gfaildiadiv');
+        chart3.validateData();
+        chart3.animateAgain();
+    }
+    chart3.addListener("clickGraphItem", clickGFaildia);
+
+    function showGvrt() {
+        chart3.dataProvider = [
+                {
+                  "category": "VCG",
+                  "target": "151",
+                  "actual": "175"
+                },
+                {
+                  "category": "F02",
+                  "target": "135",
+                  "actual": "156"
+                },
+                {
+                  "category": "F03",
+                  "target": "165",
+                  "actual": "153"
+                },
+                {
+                  "category": "F04",
+                  "target": "135",
+                  "actual": "172"
+                },
+                {
+                  "category": "F05",
+                  "target": "150",
+                  "actual": "187"
+                },
+                {
+                  "category": "F06",
+                  "target": "150",
+                  "actual": "157"
+                },
+                {
+                  "category": "F07",
+                  "target": "135",
+                  "actual": "156"
+                },
+                {
+                  "category": "F08",
+                  "target": "165",
+                  "actual": "153"
+                },
+              ];
+
+        chart3.write('gfaildiadiv');
+        chart3.validateData();
+        chart3.animateAgain();
+    }
+            
+            
+		var chart4 = new AmCharts.AmSerialChart();
 		chart4.startDuration = 0.5;
 		chart4.categoryField = "category";
 		chart4.categoryAxis.gridThickness = 0;
@@ -263,53 +390,104 @@ angular.module( 'beam.home', [
 		graph.columnWidth = 0.2;
 		graph.newStack = true;
 		chart4.addGraph(graph);
-		
-
-		
-		/*var leg = new AmCharts.AmLegend();
-		leg.align = "center";
-		chart4.addLegend(leg);*/
 
 		var vaxis = new AmCharts.ValueAxis();
 		vaxis.id = "v1";
 		vaxis.title = "R/1000";
 		chart4.addValueAxis(vaxis);
-		
-		chart4.dataProvider = [
-						{
-							"category": "VCCD",
-							"target": "138",
-							"actual": "163"
-						},
-						{
-							"category": "C30",
-							"target": "90",
-							"actual": "111"
-						},
-						{
-							"category": "S40",
-							"target": "80",
-							"actual": "101"
-						},
-						{
-							"category": "S60",
-							"target": "160",
-							"actual": "135"
-						},
-						{
-							"category": "V50",
-							"target": "100",
-							"actual": "130"
-						},
-						{
-							"category": "XC60",
-							"target": "160",
-							"actual": "206"
-						}
-					];
+    
+    showCDvehicle();
+	
+    function showCDvehicle() {
+        chart4.dataProvider = [
+                {
+                  "category": "VCCD",
+                  "target": "138",
+                  "actual": "163"
+                },
+                {
+                  "category": "C30",
+                  "target": "90",
+                  "actual": "111"
+                },
+                {
+                  "category": "S40",
+                  "target": "80",
+                  "actual": "101"
+                },
+                {
+                  "category": "S60",
+                  "target": "160",
+                  "actual": "135"
+                },
+                {
+                  "category": "V50",
+                  "target": "100",
+                  "actual": "130"
+                },
+                {
+                  "category": "XC60",
+                  "target": "160",
+                  "actual": "206"
+                }
+              ];
+        chart4.write('cdfaildiadiv');
+        chart4.validateData();
+        chart4.animateAgain();
+    }
 					
 		chart4.write('cdfaildiadiv');
+    chart4.addListener("clickGraphItem", clickCDFaildia);
 		
+    function showCDvrt() {
+        chart4.dataProvider = [
+                {
+                  "category": "VCG",
+                  "target": "151",
+                  "actual": "175"
+                },
+                {
+                  "category": "F02",
+                  "target": "135",
+                  "actual": "156"
+                },
+                {
+                  "category": "F03",
+                  "target": "165",
+                  "actual": "153"
+                },
+                {
+                  "category": "F04",
+                  "target": "135",
+                  "actual": "172"
+                },
+                {
+                  "category": "F05",
+                  "target": "150",
+                  "actual": "187"
+                },
+                {
+                  "category": "F06",
+                  "target": "150",
+                  "actual": "157"
+                },
+                {
+                  "category": "F07",
+                  "target": "135",
+                  "actual": "156"
+                },
+                {
+                  "category": "F08",
+                  "target": "165",
+                  "actual": "153"
+                },
+              ];
+
+        chart4.write('cdfaildiadiv');
+        chart4.validateData();
+        chart4.animateAgain();
+    }
+
 		perdia1 = new AmCharts.AmSerialChart();
 		perdia1.startDuration = 0.5;
 		perdia1.categoryField = "category";
@@ -410,6 +588,7 @@ angular.module( 'beam.home', [
 					];
 					
 		perdia1.write('perdiadiv');
+    perdia1.addListener("clickGraphItem", clickVCCPerdia);
 
 		perdia2 = new AmCharts.AmSerialChart();
 		perdia2.categoryField = "category";
@@ -510,6 +689,7 @@ angular.module( 'beam.home', [
 					];
 					
 		perdia2.write('tperdiadiv');
+    perdia2.addListener("clickGraphItem", clickTPerdia);
 
 		perdia3 = new AmCharts.AmSerialChart();
 		perdia3.categoryField = "category";
@@ -611,7 +791,8 @@ angular.module( 'beam.home', [
 					];
 					
 		perdia3.write('gperdiadiv');
-
+    perdia3.addListener("clickGraphItem", clickGPerdia);
+    
 		perdia4 = new AmCharts.AmSerialChart();
 		perdia4.categoryField = "category";
 		perdia4.categoryAxis.gridThickness = 0;
@@ -712,4 +893,119 @@ angular.module( 'beam.home', [
 					];
 					
 		perdia4.write('cdperdiadiv');
+    perdia4.addListener("clickGraphItem", clickCDPerdia);
+    
+    $scope.clickVCCFaildia = function() {
+        clickVCCFaildia(null);
+    }
+    
+    $scope.clickVCTFaildia = function() {
+        clickTFaildia(null);
+    }
+    
+    function clickVCCFaildia(event) {
+        /*var title = event.item.category;
+        DiagramHeaders.plantStr = "VCC";
+        DiagramHeaders.tmyStr = "2011,2012";
+        DiagramHeaders.modelStr = "All";
+        DiagramHeaders.vrtStr = "All";*/
+        
+        $location.path('/faildiaVCCDrillDown').replace();
+        $scope.$apply();
+    }
+    
+    function clickVCCPerdia(event) {
+        var title = "Perdia VCC Ranking";
+        DiagramHeaders.plantStr = "VCC";
+        DiagramHeaders.tmyStr = "???";
+        DiagramHeaders.modelStr = "All";
+        DiagramHeaders.vrtStr = "All";
+        
+        $location.path('/perdiaBreakdown').replace();
+        $scope.$apply();
+    }
+    function clickTPerdia(event) {
+        var title = "Perdia VCC Ranking";
+        DiagramHeaders.plantStr = "VCT";
+        DiagramHeaders.tmyStr = "???";
+        DiagramHeaders.modelStr = "All";
+        DiagramHeaders.vrtStr = "All";
+        
+        $location.path('/perdiaBreakdown').replace();
+        $scope.$apply();
+    }
+    function clickGPerdia(event) {
+        var title = "Perdia VCC Ranking";
+        DiagramHeaders.plantStr = "VCG";
+        DiagramHeaders.tmyStr = "???";
+        DiagramHeaders.modelStr = "All";
+        DiagramHeaders.vrtStr = "All";
+        
+        $location.path('/perdiaBreakdown').replace();
+        $scope.$apply();
+    }
+    function clickCDPerdia(event) {
+        var title = "Perdia VCC Ranking";
+        DiagramHeaders.plantStr = "VCCD";
+        DiagramHeaders.tmyStr = "???";
+        DiagramHeaders.modelStr = "All";
+        DiagramHeaders.vrtStr = "All";
+        
+        $location.path('/perdiaBreakdown').replace();
+        $scope.$apply();
+    }
+    
+    function clickTFaildia(event) {
+        var title = "";
+        if (event !== null) title = event.item.category;
+
+        DiagramHeaders.plantStr = "VCT";
+        DiagramHeaders.tmyStr = "2011,2012";
+        DiagramHeaders.modelStr = "All";
+        DiagramHeaders.vrtStr = "All";
+        if (isTvehicle) {
+            $location.path('/faildiaAPvlDrillDown').replace();
+            $scope.$apply();
+        }
+        else {
+            $location.path('/faildiaAPvrtDrillDown').replace();
+            $scope.$apply();
+        }
+    }   
+        
+    function clickGFaildia(event) {
+        var title = "";
+        if (event !== null) title = event.item.category;
+
+        DiagramHeaders.plantStr = "VCG";
+        DiagramHeaders.tmyStr = "2011,2012";
+        DiagramHeaders.modelStr = "All";
+        DiagramHeaders.vrtStr = "All";
+        if (isGvehicle) {
+            $location.path('/faildiaAPVCGvlDrilldown').replace();
+            $scope.$apply();
+        }
+        else {
+            $location.path('/faildiaAPVCGvrtDrilldown').replace();
+            $scope.$apply();
+        }
+    } 
+
+    function clickCDFaildia(event) {
+        var title = "";
+        if (event !== null) title = event.item.category;
+
+        DiagramHeaders.plantStr = "VCCD";
+        DiagramHeaders.tmyStr = "2011,2012";
+        DiagramHeaders.modelStr = "All";
+        DiagramHeaders.vrtStr = "All";
+        if (isCDvehicle) {
+            $location.path('/faildiaAPVCCDvlDrilldown').replace();
+            $scope.$apply();
+        }
+        else {
+            $location.path('/faildiaAPVCCDvrtDrilldown').replace();
+            $scope.$apply();
+        }
+    }
 });

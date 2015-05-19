@@ -18,6 +18,20 @@ angular.module( 'qdb', [
     'beam.analysis',
     'beam.toplist',
     'beam.joblist',
+    'beam.faildiaVCCDrillDown',
+    'beam.faildiaAPvrtDrillDown',
+    'beam.faildiaAPvlDrillDown',
+    'beam.faildiaAPVCGvrtDrilldown',
+    'beam.faildiaAPVCGvlDrilldown',
+    'beam.faildiaAPVCCDvrtDrilldown',
+    'beam.faildiaAPVCCDvlDrilldown',
+    'beam.perdiaVrtDrillDown',
+    'beam.perdiaVlDrillDown',
+    'beam.perdiaAPVCGvrtDrilldown',
+    'beam.perdiaAPVCGvlDrilldown',
+    'beam.perdiaAPVCCDvrtDrilldown',
+    'beam.perdiaAPVCCDvlDrilldown',
+    'beam.perdiaBreakdown',
     'angularjs-dropdown-multiselect',
     'trNgGrid',
     'ui.grid',
@@ -43,12 +57,14 @@ angular.module( 'qdb', [
     var tmyStr = "";
     var modelStr = "";
     var vrtStr = "";
+    var showVRT = false;
     
     return {         
         plantStr : plantStr,
         tmyStr : tmyStr,
         modelStr : modelStr,
-        vrtStr : vrtStr       
+        vrtStr : vrtStr,
+        showVRT : showVRT
     };
 })
 

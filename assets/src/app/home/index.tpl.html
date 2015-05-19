@@ -5,7 +5,7 @@
     
     
 	<div class="row clearfix">
-		<div class="col-md-2 column">
+<!--		<div class="col-md-2 column">
 			<div class="panel panel-primary">
 				<div class="panel-heading">
 					<h3 class="panel-title">
@@ -19,10 +19,10 @@
 					Panel footer
 				</div>
 			</div>
-		</div>
-		<div class="col-md-10 column">
+		</div> -->
+		<div class="col-md-12 column">
 			<div class="row clearfix">
-				<div class="col-md-10 column">
+				<div class="col-md-12 column">
 					<p>
 						<strong>Quality Dashboard </strong>is a Business Intelligence system establishing a single entry point when it comes to business status, KPI overview, reporting & analysis for improved decision support.
 					</p>
@@ -47,6 +47,7 @@ The system provides relevant, reliable and objective data in a shared VCC enviro
                         </div>
                         
                         <div class="panel-body" >
+                            <button type="button" class="btn btn-primary btn-xs" ng-click="clickVCCFaildia()">Drilldown</button>
                             <div id="chartdiv" style="width: 100%; height: 240px;">
                             </div>
                         </div>
@@ -85,6 +86,7 @@ The system provides relevant, reliable and objective data in a shared VCC enviro
                         
                         <div class="panel-body" >
                             <button type="button" class="btn btn-primary btn-xs" ng-click="changeTview()">Change view</button>
+                            <button type="button" class="btn btn-primary btn-xs" ng-click="clickVCTFaildia()">Drilldown</button>
                             <div id="tfaildiadiv" style="width: 100%; height: 180px;">
                             </div>
                         </div>

@@ -1,3 +1,4 @@
+<!--
 <div class="panel panel-primary">
     <div class="panel-heading">
 				Filter Criteria
@@ -12,19 +13,23 @@
   <div class="input-group-btn">
     <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
     <ul class="dropdown-menu dropdown-menu-right">
-      <li data-value="1" data-selected="true"><a href="#">Part</a></li>
+      <li data-value="1" data-selected="true"><a href="#">CCC</a></li>
       <li data-value="2"><a href="#">CSC</a></li>
+      <li data-value="3" data-selected="true"><a href="#">Part</a></li>
+      <li data-value="4"><a href="#">Part No</a></li>
+      <li data-value="5" data-selected="true"><a href="#">Adjustment</a></li>
+      <li data-value="6"><a href="#">Market</a></li>
     </ul>
   </div>
 </div>
             </div>
         </div>
-
+-->
       <div class="row">
         <div class="col-md-3 column">
           <div class="btn-group">
-              <button type="button" class="btn btn-primary" style="margin:10px" ng-click="applyFilter()">Apply Filter</button>
-              <button type="button" class="btn btn-primary" style="margin:10px" onclick='window.open("/api/excel", "_blank");'>Save as Excel</button>
+              <!-- <button type="button" class="btn btn-primary" style="margin:10px" ng-click="applyFilter()">Apply Filter</button> -->
+              <!-- <button type="button" class="btn btn-primary" style="margin:10px" onclick='window.open("/api/excel", "_blank");'>Save as Excel</button> -->
           </div>
         </div>
       </div>
@@ -36,16 +41,97 @@
 
 <div class="panel panel-primary">
     <div class="panel-heading">
-				Toplist ---
+				<h4><strong>Faildia Ranking</strong></h4>
+        <h6>Plant = {{plantStr}}; &nbsp; Model = {{modelStr}}</h6>
+        <h6>TMY = {{tmyStr}}; &nbsp; VRT = {{vrtStr}}</h6>
     </div>
     <div class="panel-body">
 
         <div class="row clearfix">
-          <div class="col-md-12 column">
+            <div class="col-md-6 column">
+                <div class="panel panel-success">
+                   <div class="panel-heading">
+                      <h3 class="panel-title">
+                        CCC
+                      </h3>
+                    </div>
 
-              <div id="container1" style="width: 100%; height: 480px;"></div>
+                    <div class="panel-body" >
+                        <div id="container1" style="width: 100%; height: 400px;"></div>
+                    </div>
 
-          </div>
+               </div>
+            </div>
+            <div class="col-md-6 column">
+                <div class="panel panel-success">
+                   <div class="panel-heading">
+                      <h3 class="panel-title">
+                        CSC
+                      </h3>
+                    </div>
+
+                    <div class="panel-body" >
+                        <div id="container2" style="width: 100%; height: 400px;"></div>
+                    </div>
+
+               </div>
+            </div>
+            <div class="col-md-6 column">
+                <div class="panel panel-success">
+                   <div class="panel-heading">
+                      <h3 class="panel-title">
+                        Part
+                      </h3>
+                    </div>
+
+                    <div class="panel-body" >
+                        <div id="container3" style="width: 100%; height: 400px;"></div>
+                    </div>
+
+               </div>
+            </div>
+            <div class="col-md-6 column">
+                <div class="panel panel-success">
+                   <div class="panel-heading">
+                      <h3 class="panel-title">
+                        Part No
+                      </h3>
+                    </div>
+
+                    <div class="panel-body" >
+                        <div id="container4" style="width: 100%; height: 400px;"></div>
+                    </div>
+
+               </div>
+            </div>
+            <div class="col-md-6 column">
+                <div class="panel panel-success">
+                   <div class="panel-heading">
+                      <h3 class="panel-title">
+                        Adjustment
+                      </h3>
+                    </div>
+
+                    <div class="panel-body" >
+                        <div id="container5" style="width: 100%; height: 400px;"></div>
+                    </div>
+
+               </div>
+            </div>
+            <div class="col-md-6 column">
+                <div class="panel panel-success">
+                   <div class="panel-heading">
+                      <h3 class="panel-title">
+                        Market
+                      </h3>
+                    </div>
+
+                    <div class="panel-body" >
+                        <div id="container6" style="width: 100%; height: 400px;"></div>
+                    </div>
+
+               </div>
+            </div>
         </div>
       </div>
     </div>

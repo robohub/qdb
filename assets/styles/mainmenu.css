@@ -4,6 +4,21 @@
   height: 500px;
 }
 
+/* roberts tabeller... t.ex. perdiaDrillDown */
+.robscroll {
+	overflow-y: hidden;
+	overflow-x: scroll;
+}
+table, th, td {
+    border: 1px solid lightgray;
+}
+th, td {
+    padding: 3px;
+}
+td {
+    text-align: right;
+}
+
 #paper svg {
    /* Grid background image */
    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAHUlEQVQYV2NkYGAwBuKzQIwXMBJSAJMfVUidcAQAnUQBC6jEGBUAAAAASUVORK5CYII=');
