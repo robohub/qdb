@@ -111,7 +111,6 @@ angular.module( 'beam.home', [
     
 		chart.write('chartdiv');
     chart.addListener("clickGraphItem", clickVCCFaildia);
-
     
 		var chart2 = new AmCharts.AmSerialChart();
 		chart2.startDuration = 0.5;
@@ -142,6 +141,7 @@ angular.module( 'beam.home', [
 		vaxis.id = "v1";
 		vaxis.title = "R/1000";
 		chart2.addValueAxis(vaxis);
+
     
     showTvehicle();
 		
@@ -406,7 +406,7 @@ angular.module( 'beam.home', [
                   "actual": "163"
                 },
                 {
-                  "category": "C30",
+                  "category": "S60",
                   "target": "90",
                   "actual": "111"
                 },
@@ -898,9 +898,26 @@ angular.module( 'beam.home', [
     $scope.clickVCCFaildia = function() {
         clickVCCFaildia(null);
     }
-    
+    $scope.clickVCCPerdia = function() {
+        clickVCCPerdia(null);
+    }
     $scope.clickVCTFaildia = function() {
         clickTFaildia(null);
+    }
+    $scope.clickVCTPerdia = function() {
+        clickTPerdia(null);
+    }
+    $scope.clickVCGFaildia = function() {
+        clickGFaildia(null);
+    }
+    $scope.clickVCGPerdia = function() {
+        clickGPerdia(null);
+    }
+    $scope.clickVCCDFaildia = function() {
+        clickCDFaildia(null);
+    }
+    $scope.clickVCCDPerdia = function() {
+        clickCDPerdia(null);
     }
     
     function clickVCCFaildia(event) {
@@ -913,7 +930,6 @@ angular.module( 'beam.home', [
         $location.path('/faildiaVCCDrillDown').replace();
         $scope.$apply();
     }
-    
     function clickVCCPerdia(event) {
         var title = "Perdia VCC Ranking";
         DiagramHeaders.plantStr = "VCC";

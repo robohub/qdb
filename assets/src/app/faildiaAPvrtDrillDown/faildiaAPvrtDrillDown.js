@@ -17,6 +17,8 @@ angular.module("beam.faildiaAPvrtDrillDown", [
 
 .controller('FaildiaAPvrtDrillDownController', [ '$scope', '$location', 'DiagramHeaders', function FaildiaAPvrtDrillDownController($scope, $location, DiagramHeaders) {
     
+    $scope.selFunc = "Toplist";
+
     var chart = new AmCharts.AmSerialChart();
 		chart.startDuration = 0.5;
 		chart.categoryField = "category";
@@ -557,16 +559,28 @@ angular.module("beam.faildiaAPvrtDrillDown", [
     }
         
     function redirect(event) {
-        var title = "Faildia VCT Ranking";
-        //DiagramHeaders.plantStr = "VCC";
+        if ($scope.selFunc === "Toplist") {
+            showToplist(event);
+        } else if ($scope.selFunc === "Joblist") {
+            showJoblist(event);
+            //self.location='../joblist';
+        }
+    }
+
+    function showToplist(event) {
         DiagramHeaders.vrtStr = event.item.category;
-        
         $location.path('/toplist').replace();
         $scope.$apply();
     }
+    function showJoblist(event) {
+        DiagramHeaders.vrtStr = event.item.category;
+        $location.path('/joblist').replace();
+        $scope.$apply();
+    }
     
-    $scope.viewPerdia = function() {
-        $location.path('/perdiaVrtDrillDown').replace();
+    $scope.viewPerdia = function(str) {
+        DiagramHeaders.modelStr = str;
+        $location.path('/perdiaVlDrillDown').replace();
         $scope.$apply();
     }
 }]);

@@ -30,11 +30,11 @@ angular.module("beam.toplist", [
   showPartNo();
   showAdjustment();
   showMarket();
-    
+ /*   
 	function clickGraph(event) {
 		self.location='../joblist';
 	}
-
+*/
     
   function showCCC() {
 		
@@ -122,7 +122,7 @@ angular.module("beam.toplist", [
 			chart.addValueAxis(vaxis);
 			
 			chart.write('container1');
-		  chart.addListener("clickGraph", clickGraph);
+		  //chart.addListener("clickGraph", clickGraph);
 	};
 
   function showCSC() {
@@ -211,7 +211,7 @@ angular.module("beam.toplist", [
 			chart.addValueAxis(vaxis);
 			
 			chart.write('container2');
-		  chart.addListener("clickGraph", clickGraph);
+		  //chart.addListener("clickGraph", clickGraph);
 	};
 
   function showPart() {
@@ -300,7 +300,7 @@ angular.module("beam.toplist", [
 			chart.addValueAxis(vaxis);
 			
 			chart.write('container3');
-		  chart.addListener("clickGraph", clickGraph);
+		  //chart.addListener("clickGraph", clickGraph);
 	};
 
   function showPartNo() {
@@ -389,7 +389,7 @@ angular.module("beam.toplist", [
 			chart.addValueAxis(vaxis);
 			
 			chart.write('container4');
-		  chart.addListener("clickGraph", clickGraph);
+		  //chart.addListener("clickGraph", clickGraph);
 	};
 
   function showAdjustment() {
@@ -478,7 +478,7 @@ angular.module("beam.toplist", [
 			chart.addValueAxis(vaxis);
 			
 			chart.write('container5');
-		  chart.addListener("clickGraph", clickGraph);
+		  //chart.addListener("clickGraph", clickGraph);
 	};
     
   function showMarket() {
@@ -567,7 +567,7 @@ angular.module("beam.toplist", [
 			chart.addValueAxis(vaxis);
 			
 			chart.write('container6');
-		  chart.addListener("clickGraph", clickGraph);
+		  //chart.addListener("clickGraph", clickGraph);
 	};
         
 }]);

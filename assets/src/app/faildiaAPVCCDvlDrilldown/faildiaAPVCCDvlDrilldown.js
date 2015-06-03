@@ -17,6 +17,9 @@ angular.module("beam.faildiaAPVCCDvlDrilldown", [
 
 .controller('FaildiaAPVCCDvlDrilldownController', [ '$scope', '$location', 'DiagramHeaders', function FaildiaAPVCCDvlDrilldownController($scope, $location, DiagramHeaders) {
 
+    var vrts = [ 'F02', 'F03', 'F04', 'F05', 'F06', 'F07', 'F08' ];
+    $scope.selFunc = "Toplist";
+
     var chart8 = new AmCharts.AmSerialChart();
 		chart8.startDuration = 0.5;
 		chart8.categoryField = "category";
@@ -369,16 +372,33 @@ angular.module("beam.faildiaAPVCCDvlDrilldown", [
     }
     
     function redirect(event) {
-        var title = "Faildia VCCD Ranking";
-        //DiagramHeaders.plantStr = "VCC";
+        if ($scope.selFunc === "Toplist") {
+            showToplist(event);
+        } else if ($scope.selFunc === "Joblist") {
+            showJoblist(event);
+            //self.location='../joblist';
+        }
+    }
+
+    function showToplist(event) {
         DiagramHeaders.modelStr = event.item.category;
-        
         $location.path('/toplist').replace();
         $scope.$apply();
     }
+    function showJoblist(event) {
+        DiagramHeaders.modelStr = event.item.category;
+        $location.path('/joblist').replace();
+        $scope.$apply();
+    }
     
-    $scope.viewPerdia = function() {
-        $location.path('/perdiaAPVCCDvlDrilldown').replace();
+    $scope.viewPerdia = function(index) {
+        DiagramHeaders.vrtStr = vrts[index];        
+        $location.path('/perdiaAPVCCDvrtDrilldown').replace();
+        $scope.$apply();
+    }
+    $scope.historic = function(index) {
+        DiagramHeaders.vrtStr = vrts[index];
+        $location.path('/historicVCCDvrt').replace();
         $scope.$apply();
     }
 }]);

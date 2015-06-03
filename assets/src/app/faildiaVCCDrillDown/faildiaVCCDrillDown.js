@@ -73,7 +73,7 @@ angular.module("beam.faildiaVCCDrillDown", [
 					];
     
 		chart.write('div1');
-    chart.addListener("clickGraphItem", click1Diagram);
+    chart.addListener("clickGraphItem", clickDiagram1);
 
      var chart2 = new AmCharts.AmSerialChart();
 		chart2.startDuration = 0.5;
@@ -130,6 +130,7 @@ angular.module("beam.faildiaVCCDrillDown", [
 					];
     
 		chart2.write('div2');
+    chart2.addListener("clickGraphItem", clickDiagram2);
 
      var chart3 = new AmCharts.AmSerialChart();
 		chart3.startDuration = 0.5;
@@ -186,6 +187,7 @@ angular.module("beam.faildiaVCCDrillDown", [
 					];
     
 		chart3.write('div3');
+    chart3.addListener("clickGraphItem", clickDiagram3);
 
      var chart4 = new AmCharts.AmSerialChart();
 		chart4.startDuration = 0.5;
@@ -242,7 +244,8 @@ angular.module("beam.faildiaVCCDrillDown", [
 					];
     
 		chart4.write('div4');
-
+    chart4.addListener("clickGraphItem", clickDiagram4);
+    
      var chart5 = new AmCharts.AmSerialChart();
 		chart5.startDuration = 0.5;
 		chart5.categoryField = "category";
@@ -273,7 +276,7 @@ angular.module("beam.faildiaVCCDrillDown", [
 		vaxis.id = "v1";
 		vaxis.title = "R/1000";
 		chart5.addValueAxis(vaxis);
-		
+    
 		chart5.dataProvider = [
 						{
 							"category": "MY 2009",
@@ -298,8 +301,9 @@ angular.module("beam.faildiaVCCDrillDown", [
 					];
     
 		chart5.write('div5');
+    chart5.addListener("clickGraphItem", clickDiagram5);
 
-     var chart6 = new AmCharts.AmSerialChart();
+    var chart6 = new AmCharts.AmSerialChart();
 		chart6.startDuration = 0.5;
 		chart6.categoryField = "category";
 		chart6.categoryAxis.gridThickness = 0;
@@ -354,8 +358,9 @@ angular.module("beam.faildiaVCCDrillDown", [
 					];
     
 		chart6.write('div6');
+    chart6.addListener("clickGraphItem", clickDiagram6);
 
-     var chart7 = new AmCharts.AmSerialChart();
+    var chart7 = new AmCharts.AmSerialChart();
 		chart7.startDuration = 0.5;
 		chart7.categoryField = "category";
 		chart7.categoryAxis.gridThickness = 0;
@@ -410,7 +415,8 @@ angular.module("beam.faildiaVCCDrillDown", [
 					];
     
 		chart7.write('div7');
-
+    chart7.addListener("clickGraphItem", clickDiagram7);
+    
      var chart8 = new AmCharts.AmSerialChart();
 		chart8.startDuration = 0.5;
 		chart8.categoryField = "category";
@@ -466,8 +472,9 @@ angular.module("beam.faildiaVCCDrillDown", [
 					];
     
 		chart8.write('div8');
+    chart8.addListener("clickGraphItem", clickDiagram8);
 
-     var chart9 = new AmCharts.AmSerialChart();
+    var chart9 = new AmCharts.AmSerialChart();
 		chart9.startDuration = 0.5;
 		chart9.categoryField = "category";
 		chart9.categoryAxis.gridThickness = 0;
@@ -522,8 +529,9 @@ angular.module("beam.faildiaVCCDrillDown", [
 					];
     
 		chart9.write('div9');
+    chart9.addListener("clickGraphItem", clickDiagram9);
 
-     var chart10 = new AmCharts.AmSerialChart();
+    var chart10 = new AmCharts.AmSerialChart();
 		chart10.startDuration = 0.5;
 		chart10.categoryField = "category";
 		chart10.categoryAxis.gridThickness = 0;
@@ -579,8 +587,9 @@ angular.module("beam.faildiaVCCDrillDown", [
 					];
     
 		chart10.write('div10');
+    chart10.addListener("clickGraphItem", clickDiagram10);
 
-     var chart11 = new AmCharts.AmSerialChart();
+    var chart11 = new AmCharts.AmSerialChart();
 		chart11.startDuration = 0.5;
 		chart11.categoryField = "category";
 		chart11.categoryAxis.gridThickness = 0;
@@ -635,8 +644,9 @@ angular.module("beam.faildiaVCCDrillDown", [
 					];
     
 		chart11.write('div11');
+    chart11.addListener("clickGraphItem", clickDiagram11);
 
-     var chart12 = new AmCharts.AmSerialChart();
+    var chart12 = new AmCharts.AmSerialChart();
 		chart12.startDuration = 0.5;
 		chart12.categoryField = "category";
 		chart12.categoryAxis.gridThickness = 0;
@@ -691,17 +701,61 @@ angular.module("beam.faildiaVCCDrillDown", [
 					];
     
 		chart12.write('div12');
-
+    chart12.addListener("clickGraphItem", clickDiagram12);
    
-    function click1Diagram(event) {
+    function clickDiagram1(event) {
         DiagramHeaders.modelStr = "S60";
+        redirect();
+    }
+    function clickDiagram2(event) {
+        DiagramHeaders.modelStr = "S60CC";
+        redirect();
+    }
+    function clickDiagram3(event) {
+        DiagramHeaders.modelStr = "S60L";
+        redirect();
+    }
+    function clickDiagram4(event) {
+        DiagramHeaders.modelStr = "V40";
+        redirect();
+    }
+    function clickDiagram5(event) {
+        DiagramHeaders.modelStr = "V40CC";
+        redirect();
+    }
+    function clickDiagram6(event) {
+        DiagramHeaders.modelStr = "XC60";
+        redirect();
+    }
+    function clickDiagram7(event) {
+        DiagramHeaders.modelStr = "S80";
+        redirect();
+    }
+    function clickDiagram8(event) {
+        DiagramHeaders.modelStr = "V60";
+        redirect();
+    }
+    function clickDiagram9(event) {
+        DiagramHeaders.modelStr = "V60CC";
+        redirect();
+    }
+    function clickDiagram10(event) {
+        DiagramHeaders.modelStr = "V70";
+        redirect();
+    }
+    function clickDiagram11(event) {
+        DiagramHeaders.modelStr = "XC70";
+        redirect();
+    }
+    function clickDiagram12(event) {
+        DiagramHeaders.modelStr = "XC90";
         redirect();
     }
     
     function redirect() {
         var title = "Faildia VCC Ranking";
         DiagramHeaders.plantStr = "VCC";
-        //DiagramHeaders.tmyStr = "2012";
+        DiagramHeaders.tmyStr = "2011;2012";
         DiagramHeaders.vrtStr = "All";
         
         $location.path('/toplist').replace();

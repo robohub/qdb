@@ -13,9 +13,16 @@ angular.module( 'beam.joblist', [
 	});
 })
 
-.controller( 'JoblistCtrl', function JobListController(JoblistRest, $scope, titleService,    utils, $sailsSocket, $http) {
-	titleService.setTitle('Joblist');
+.controller( 'JoblistCtrl', [ 'DiagramHeaders', 'JoblistRest',  '$scope', 'utils', '$sailsSocket', function JobListController(DiagramHeaders, JoblistRest, $scope, utils, $sailsSocket ) {
+	//titleService.setTitle('Joblist');
 
+    // Hämta variabler från Actual vs Target  -------------
+    $scope.plantStr = DiagramHeaders.plantStr;
+    $scope.tmyStr = DiagramHeaders.tmyStr;
+    $scope.modelStr = DiagramHeaders.modelStr;
+    $scope.vrtStr = DiagramHeaders.vrtStr;
+    
+    
         var url = utils.prepareUrl('joblist');
 
         $sailsSocket.get(url)
@@ -26,44 +33,4 @@ angular.module( 'beam.joblist', [
             var x = err;
         });
 
- /*       
-    JoblistRest.getAll().then(function(list) {
-        $scope.myItems = list;
-    })
-    .catch(function(err) {
-        alert("ERROR: " + err);
-    });*/
-
-
-/*    
-  $scope.myData = [
-    {
-        "firstName": "Cox",
-        "lastName": "Carney",
-        "company": "Enormo",
-        "employed": true
-    },
-    {
-        "firstName": "Lorraine",
-        "lastName": "Wise",
-        "company": "Comveyer",
-        "employed": false
-    },
-    {
-        "firstName": "Nancy",
-        "lastName": "Waters",
-        "company": "Fuelton",
-        "employed": false
-    }
-];
-*/
-/*
-    $scope.myItems = [
-        { jobNo : 1, roNo : 'x' ,roSuffix : 1, entryDate : 'x', repairDate : 1, partNo : 'x', failPart : 1, mainOp : 'x', mainOpDesc : 1, totCost : 'x', matCost : 1, labCost : 'x', }, 
-        { jobNo : 2, roNo : 'x' ,roSuffix : 1, entryDate : 'x', repairDate : 1, partNo : 'x', failPart : 1, mainOp : 'x', mainOpDesc : 1, totCost : 'x', matCost : 1, labCost : 'x', },
-        { jobNo : 3, roNo : 'x' ,roSuffix : 1, entryDate : 'x', repairDate : 1, partNo : 'x', failPart : 1, mainOp : 'x', mainOpDesc : 1, totCost : 'x', matCost : 1, labCost : 'x', },
-        { jobNo : 4, roNo : 'x' ,roSuffix : 1, entryDate : 'x', repairDate : 1, partNo : 'x', failPart : 1, mainOp : 'x', mainOpDesc : 1, totCost : 'x', matCost : 1, labCost : 'x', },        
-
-    ];
-*/
-});
+}]);

@@ -93,6 +93,10 @@ module.exports.routes = {
     'get /perdiaAPVCGvrtDrilldown': 'HomeController.index',
     'get /perdiaAPVCGvlDrilldown': 'HomeController.index',
     'get /perdiaAPVCCDvrtDrilldown': 'HomeController.index',
-    'get /perdiaAPVCCDvlDrilldown': 'HomeController.index'
+    'get /perdiaAPVCCDvlDrilldown': 'HomeController.index',
+    'get /historicVCTvrt': 'HomeController.index',
+    'get /historicVCGvrt': 'HomeController.index',
+    'get /historicVCCDvrt': 'HomeController.index'
+
 
 };

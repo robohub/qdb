@@ -1,23 +1,24 @@
-angular.module("beam.faildiaAPVCGvrtDrilldown", [
+angular.module("beam.historicVCTvrt", [
     'ui.router', 'ui.bootstrap'
 ])
 
 .config(function ($stateProvider) {
-    $stateProvider.state('faildiaAPVCGvrtDrilldown', {
-        url: '/faildiaAPVCGvrtDrilldown',
+    $stateProvider.state('historicVCTvrt', {
+        url: '/historicVCTvrt',
         views: {
             "main": {
-                controller: 'FaildiaAPVCGvrtDrilldownController as model',
-                templateUrl: 'faildiaAPVCGvrtDrilldown/faildiaAPVCGvrtDrilldown.tpl.html'
+                controller: 'HistoricVCTvrtController as model',
+                templateUrl: 'historicVCTvrt/historicVCTvrt.tpl.html'
             }
         },
-        data:{ pageTitle: 'Faildia AP VCG VRT Drilldown' }
+        data:{ pageTitle: 'Historic VCT VRT Drilldown' }
     });
 })
 
-.controller('FaildiaAPVCGvrtDrilldownController', [ '$scope', '$location', 'DiagramHeaders', function FaildiaAPVCGvrtDrilldownController($scope, $location, DiagramHeaders) {
+.controller('HistoricVCTvrtController', [ '$scope', '$location', 'DiagramHeaders', function HistoricVCTvrtController($scope, $location, DiagramHeaders) {
     
     $scope.selFunc = "Toplist";
+    $scope.vrtStr = DiagramHeaders.vrtStr;
 
     var chart = new AmCharts.AmSerialChart();
 		chart.startDuration = 0.5;
@@ -51,45 +52,39 @@ angular.module("beam.faildiaAPVCGvrtDrilldown", [
 		chart.addValueAxis(vaxis);
 		
     chart.dataProvider = [
-                
+
         {
-          "category": "F02",
-          "target": "135",
-          "actual": "156"
-        },
-        {
-          "category": "F03",
-          "target": "165",
+          "category": "2009",
+          "target": "115",
           "actual": "153"
         },
         {
-          "category": "F04",
+          "category": "2010",
           "target": "135",
           "actual": "172"
         },
         {
-          "category": "F05",
-          "target": "150",
+          "category": "2011",
+          "target": "190",
           "actual": "187"
         },
         {
-          "category": "F06",
+          "category": "2012",
           "target": "150",
-          "actual": "157"
+          "actual": "143"
         },
         {
-          "category": "F07",
+          "category": "2013",
           "target": "135",
-          "actual": "156"
+          "actual": "120"
         },
         {
-          "category": "F08",
-          "target": "165",
+          "category": "2014",
+          "target": "120",
           "actual": "153"
         }
     ];
     chart.write('div1');
-    chart.addListener("clickGraphItem", click1Diagram);
 
     var chart2 = new AmCharts.AmSerialChart();
 		chart2.startDuration = 0.5;
@@ -126,43 +121,37 @@ angular.module("beam.faildiaAPVCGvrtDrilldown", [
     chart2.dataProvider = [
                 
         {
-          "category": "F02",
-          "target": "135",
-          "actual": "156"
-        },
-        {
-          "category": "F03",
-          "target": "165",
+          "category": "2009",
+          "target": "115",
           "actual": "153"
         },
         {
-          "category": "F04",
+          "category": "2010",
           "target": "135",
           "actual": "172"
         },
         {
-          "category": "F05",
-          "target": "150",
+          "category": "2011",
+          "target": "190",
           "actual": "187"
         },
         {
-          "category": "F06",
+          "category": "2012",
           "target": "150",
-          "actual": "157"
+          "actual": "143"
         },
         {
-          "category": "F07",
+          "category": "2013",
           "target": "135",
-          "actual": "156"
+          "actual": "120"
         },
         {
-          "category": "F08",
-          "target": "165",
+          "category": "2014",
+          "target": "120",
           "actual": "153"
         }
     ];
     chart2.write('div2');
-    chart2.addListener("clickGraphItem", click2Diagram);
 
     var chart3 = new AmCharts.AmSerialChart();
 		chart3.startDuration = 0.5;
@@ -199,43 +188,37 @@ angular.module("beam.faildiaAPVCGvrtDrilldown", [
     chart3.dataProvider = [
                 
         {
-          "category": "F02",
-          "target": "135",
-          "actual": "156"
-        },
-        {
-          "category": "F03",
-          "target": "165",
+          "category": "2009",
+          "target": "115",
           "actual": "153"
         },
         {
-          "category": "F04",
+          "category": "2010",
           "target": "135",
           "actual": "172"
         },
         {
-          "category": "F05",
-          "target": "150",
+          "category": "2011",
+          "target": "190",
           "actual": "187"
         },
         {
-          "category": "F06",
+          "category": "2012",
           "target": "150",
-          "actual": "157"
+          "actual": "143"
         },
         {
-          "category": "F07",
+          "category": "2013",
           "target": "135",
-          "actual": "156"
+          "actual": "120"
         },
         {
-          "category": "F08",
-          "target": "165",
+          "category": "2014",
+          "target": "120",
           "actual": "153"
         }
     ];
     chart3.write('div3');
-    chart3.addListener("clickGraphItem", click3Diagram);
     
     var chart4 = new AmCharts.AmSerialChart();
 		chart4.startDuration = 0.5;
@@ -272,43 +255,37 @@ angular.module("beam.faildiaAPVCGvrtDrilldown", [
     chart4.dataProvider = [
                 
         {
-          "category": "F02",
-          "target": "135",
-          "actual": "156"
-        },
-        {
-          "category": "F03",
-          "target": "165",
+          "category": "2009",
+          "target": "115",
           "actual": "153"
         },
         {
-          "category": "F04",
+          "category": "2010",
           "target": "135",
           "actual": "172"
         },
         {
-          "category": "F05",
-          "target": "150",
+          "category": "2011",
+          "target": "190",
           "actual": "187"
         },
         {
-          "category": "F06",
+          "category": "2012",
           "target": "150",
-          "actual": "157"
+          "actual": "143"
         },
         {
-          "category": "F07",
+          "category": "2013",
           "target": "135",
-          "actual": "156"
+          "actual": "120"
         },
         {
-          "category": "F08",
-          "target": "165",
+          "category": "2014",
+          "target": "120",
           "actual": "153"
         }
     ];
     chart4.write('div4');
-    chart4.addListener("clickGraphItem", click4Diagram);
     
     var chart5 = new AmCharts.AmSerialChart();
 		chart5.startDuration = 0.5;
@@ -345,89 +322,182 @@ angular.module("beam.faildiaAPVCGvrtDrilldown", [
     chart5.dataProvider = [
                 
         {
-          "category": "F02",
-          "target": "135",
-          "actual": "156"
-        },
-        {
-          "category": "F03",
-          "target": "165",
+          "category": "2009",
+          "target": "115",
           "actual": "153"
         },
         {
-          "category": "F04",
+          "category": "2010",
           "target": "135",
           "actual": "172"
         },
         {
-          "category": "F05",
-          "target": "150",
+          "category": "2011",
+          "target": "190",
           "actual": "187"
         },
         {
-          "category": "F06",
+          "category": "2012",
           "target": "150",
-          "actual": "157"
+          "actual": "143"
         },
         {
-          "category": "F07",
+          "category": "2013",
           "target": "135",
-          "actual": "156"
+          "actual": "120"
         },
         {
-          "category": "F08",
-          "target": "165",
+          "category": "2014",
+          "target": "120",
           "actual": "153"
         }
     ];
     chart5.write('div5');
-    chart5.addListener("clickGraphItem", click5Diagram);
+    
+    var chart6 = new AmCharts.AmSerialChart();
+		chart6.startDuration = 0.5;
+		chart6.categoryField = "category";
+		chart6.categoryAxis.gridThickness = 0;
+
+		
+		var graph = new AmCharts.AmGraph();
+		graph.title = "Target";
+		graph.valueField = "target";
+		graph.type = "column";
+		graph.fillAlphas = 1;
+		graph.lineAlpha = 0.2;
+		graph.balloonText = "[[title]] of [[category]]: <b>[[value]]</b>";
+		graph.columnWidth = 0.4;
+		chart6.addGraph(graph);
+		
+		graph = new AmCharts.AmGraph();
+		graph.title = "Actual";
+		graph.valueField = "actual";
+		graph.type = "column";
+		graph.fillAlphas = 1;
+		graph.lineAlpha = 0.2;
+		graph.balloonText = "[[title]] of [[category]]: <b>[[value]]</b>";
+		graph.columnWidth = 0.2;
+		graph.newStack = true;
+		chart6.addGraph(graph);
+
+		var vaxis = new AmCharts.ValueAxis();
+		vaxis.id = "v1";
+		vaxis.title = "R/1000";
+		chart6.addValueAxis(vaxis);
+		
+    chart6.dataProvider = [
+                
+        {
+          "category": "2009",
+          "target": "115",
+          "actual": "153"
+        },
+        {
+          "category": "2010",
+          "target": "135",
+          "actual": "172"
+        },
+        {
+          "category": "2011",
+          "target": "190",
+          "actual": "187"
+        },
+        {
+          "category": "2012",
+          "target": "150",
+          "actual": "143"
+        },
+        {
+          "category": "2013",
+          "target": "135",
+          "actual": "120"
+        },
+        {
+          "category": "2014",
+          "target": "120",
+          "actual": "153"
+        }
+    ];
+    chart6.write('div6');
+    
+    var chart7 = new AmCharts.AmSerialChart();
+		chart7.startDuration = 0.5;
+		chart7.categoryField = "category";
+		chart7.categoryAxis.gridThickness = 0;
+
+		var graph = new AmCharts.AmGraph();
+		graph.title = "Target";
+		graph.valueField = "target";
+		graph.type = "column";
+		graph.fillAlphas = 1;
+		graph.lineAlpha = 0.2;
+		graph.balloonText = "[[title]] of [[category]]: <b>[[value]]</b>";
+		graph.columnWidth = 0.4;
+		chart7.addGraph(graph);
+		
+		graph = new AmCharts.AmGraph();
+		graph.title = "Actual";
+		graph.valueField = "actual";
+		graph.type = "column";
+		graph.fillAlphas = 1;
+		graph.lineAlpha = 0.2;
+		graph.balloonText = "[[title]] of [[category]]: <b>[[value]]</b>";
+		graph.columnWidth = 0.2;
+		graph.newStack = true;
+		chart7.addGraph(graph);
+
+		var vaxis = new AmCharts.ValueAxis();
+		vaxis.id = "v1";
+		vaxis.title = "R/1000";
+		chart7.addValueAxis(vaxis);
+		
+    chart7.dataProvider = [
+                
+        {
+          "category": "2009",
+          "target": "115",
+          "actual": "153"
+        },
+        {
+          "category": "2010",
+          "target": "135",
+          "actual": "172"
+        },
+        {
+          "category": "2011",
+          "target": "190",
+          "actual": "187"
+        },
+        {
+          "category": "2012",
+          "target": "150",
+          "actual": "143"
+        },
+        {
+          "category": "2013",
+          "target": "135",
+          "actual": "120"
+        },
+        {
+          "category": "2014",
+          "target": "120",
+          "actual": "153"
+        }
+    ];
+    chart7.write('div7');
     
 
-   function click1Diagram(event) {
-        DiagramHeaders.modelStr = 'S60';
-        redirect(event);
-    }
-    function click2Diagram(event) {
-        DiagramHeaders.modelStr = 'S60CC';
-        redirect(event);
-    }
-        function click3Diagram(event) {
-        DiagramHeaders.modelStr = 'V40';
-        redirect(event);
-    }
-        function click4Diagram(event) {
-        DiagramHeaders.modelStr = 'V40CC';
-        redirect(event);
-    }
-        function click5Diagram(event) {
-        DiagramHeaders.modelStr = 'XC60';
-        redirect(event);
-    }
-      
     function redirect(event) {
-        if ($scope.selFunc === "Toplist") {
-            showToplist(event);
-        } else if ($scope.selFunc === "Joblist") {
-            showJoblist(event);
-            //self.location='../joblist';
-        }
-    }
-
-    function showToplist(event) {
         DiagramHeaders.vrtStr = event.item.category;
         $location.path('/toplist').replace();
         $scope.$apply();
     }
-    function showJoblist(event) {
-        DiagramHeaders.vrtStr = event.item.category;
-        $location.path('/joblist').replace();
-        $scope.$apply();
-    }
     
-    $scope.viewPerdia = function(str) {
+    $scope.viewToplist = function(str) {
+        DiagramHeaders.tmyStr = '2009-2014';
         DiagramHeaders.modelStr = str;
-        $location.path('/perdiaAPVCGvlDrilldown').replace();
+        $location.path('/toplist').replace();
         $scope.$apply();
     }
 }]);
