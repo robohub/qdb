@@ -17,8 +17,14 @@ angular.module("beam.faildiaAPVCGvrtDrilldown", [
 
 .controller('FaildiaAPVCGvrtDrilldownController', [ '$scope', '$location', 'DiagramHeaders', function FaildiaAPVCGvrtDrilldownController($scope, $location, DiagramHeaders) {
     
-    $scope.selFunc = "Toplist";
-
+    $scope.selFunc0 = "Toplist";
+    $scope.selFunc1 = "Toplist";
+    $scope.selFunc2 = "Toplist";
+    $scope.selFunc3 = "Toplist";
+    $scope.selFunc4 = "Toplist";
+    $scope.selFunc5 = "Toplist";
+    $scope.selFunc6 = "Toplist";
+    
     var chart = new AmCharts.AmSerialChart();
 		chart.startDuration = 0.5;
 		chart.categoryField = "category";
@@ -386,29 +392,29 @@ angular.module("beam.faildiaAPVCGvrtDrilldown", [
 
    function click1Diagram(event) {
         DiagramHeaders.modelStr = 'S60';
-        redirect(event);
+        redirect(event, $scope.selFunc0);
     }
     function click2Diagram(event) {
         DiagramHeaders.modelStr = 'S60CC';
-        redirect(event);
+        redirect(event, $scope.selFunc1);
     }
         function click3Diagram(event) {
         DiagramHeaders.modelStr = 'V40';
-        redirect(event);
+        redirect(event, $scope.selFunc2);
     }
         function click4Diagram(event) {
         DiagramHeaders.modelStr = 'V40CC';
-        redirect(event);
+        redirect(event, $scope.selFunc3);
     }
         function click5Diagram(event) {
         DiagramHeaders.modelStr = 'XC60';
-        redirect(event);
+        redirect(event, $scope.selFunc4);
     }
       
-    function redirect(event) {
-        if ($scope.selFunc === "Toplist") {
+    function redirect(event, selFunc) {
+        if (selFunc === "Toplist") {
             showToplist(event);
-        } else if ($scope.selFunc === "Joblist") {
+        } else if (selFunc === "Joblist") {
             showJoblist(event);
             //self.location='../joblist';
         }
@@ -416,18 +422,23 @@ angular.module("beam.faildiaAPVCGvrtDrilldown", [
 
     function showToplist(event) {
         DiagramHeaders.vrtStr = event.item.category;
-        $location.path('/toplist').replace();
+        $location.path('/toplist');
         $scope.$apply();
     }
     function showJoblist(event) {
         DiagramHeaders.vrtStr = event.item.category;
-        $location.path('/joblist').replace();
+        $location.path('/joblist');
         $scope.$apply();
     }
     
     $scope.viewPerdia = function(str) {
         DiagramHeaders.modelStr = str;
-        $location.path('/perdiaAPVCGvlDrilldown').replace();
-        $scope.$apply();
+        $location.path('/perdiaAPVCGvlDrilldown');
+        //$scope.$apply();
+    }
+    $scope.historic = function(str) {
+        DiagramHeaders.modelStr = str;
+        $location.path('/historicVCGvl');
+        //$scope.$apply();
     }
 }]);

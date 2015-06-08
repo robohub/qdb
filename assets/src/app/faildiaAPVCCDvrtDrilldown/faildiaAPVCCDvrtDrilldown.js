@@ -17,7 +17,8 @@ angular.module("beam.faildiaAPVCCDvrtDrilldown", [
 
 .controller('FaildiaAPVCCDvrtDrilldownController', [ '$scope', '$location', 'DiagramHeaders', function FaildiaAPVCCDvrtDrilldownController($scope, $location, DiagramHeaders) {
 
-    $scope.selFunc = "Toplist";
+    $scope.selFunc0 = "Toplist";
+    $scope.selFunc1 = "Toplist";
 
     var chart = new AmCharts.AmSerialChart();
 		chart.startDuration = 0.5;
@@ -167,17 +168,17 @@ angular.module("beam.faildiaAPVCCDvrtDrilldown", [
     
     function click1Diagram(event) {
         DiagramHeaders.modelStr = 'S60L';
-        redirect(event);
+        redirect(event, $scope.selFunc0);
     }
     function click2Diagram(event) {
         DiagramHeaders.modelStr = 'XC60';
-        redirect(event);
+        redirect(event, $scope.selFunc1);
     }
 
-    function redirect(event) {
-        if ($scope.selFunc === "Toplist") {
+    function redirect(event, selFunc) {
+        if (selFunc === "Toplist") {
             showToplist(event);
-        } else if ($scope.selFunc === "Joblist") {
+        } else if (selFunc === "Joblist") {
             showJoblist(event);
             //self.location='../joblist';
         }
@@ -185,19 +186,24 @@ angular.module("beam.faildiaAPVCCDvrtDrilldown", [
 
     function showToplist(event) {
         DiagramHeaders.vrtStr = event.item.category;
-        $location.path('/toplist').replace();
+        $location.path('/toplist');
         $scope.$apply();
     }
     function showJoblist(event) {
         DiagramHeaders.vrtStr = event.item.category;
-        $location.path('/joblist').replace();
+        $location.path('/joblist');
         $scope.$apply();
     }
     
     $scope.viewPerdia = function(str) {
         DiagramHeaders.modelStr = str;
-        $location.path('/perdiaAPVCCDvlDrilldown').replace();
-        $scope.$apply();
+        $location.path('/perdiaAPVCCDvlDrilldown');
+        //$scope.$apply();
+    }
+    $scope.historic = function(str) {
+        DiagramHeaders.modelStr = str;
+        $location.path('/historicVCCDvl');
+        //$scope.$apply();
     }
 }]);
 

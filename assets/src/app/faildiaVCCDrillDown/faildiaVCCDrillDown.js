@@ -758,7 +758,7 @@ angular.module("beam.faildiaVCCDrillDown", [
         DiagramHeaders.tmyStr = "2011;2012";
         DiagramHeaders.vrtStr = "All";
         
-        $location.path('/toplist').replace();
+        $location.path('/toplist');
         $scope.$apply();
     }
     

@@ -723,8 +723,8 @@ angular.module("beam.perdiaAPVCCDvlDrilldown", [
     function redirect() {
         DiagramHeaders.plantStr = 'VCCD';
         //DiagramHeaders.modelStr = 'All';
-        $location.path('/perdiaBreakdown').replace();
-        $scope.$apply();
+        $location.path('/perdiaBreakdown');
+        //$scope.$apply();
     }
 
 }]);

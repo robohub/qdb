@@ -793,7 +793,7 @@ angular.module("beam.perdiaVrtDrillDown", [
     function redirect() {
         DiagramHeaders.plantStr = 'VCT';
         //DiagramHeaders.vrtStr = 'All';
-        $location.path('/perdiaBreakdown').replace();
-        $scope.$apply();
+        $location.path('/perdiaBreakdown');
+        //$scope.$apply();
     }
 }]);

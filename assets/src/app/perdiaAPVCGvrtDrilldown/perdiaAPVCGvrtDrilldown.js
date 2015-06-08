@@ -721,7 +721,7 @@ angular.module("beam.perdiaAPVCGvrtDrilldown", [
     function redirect() {
         DiagramHeaders.plantStr = 'VCG';
         //DiagramHeaders.vrtStr = 'All';
-        $location.path('/perdiaBreakdown').replace();
-        $scope.$apply();
+        $location.path('/perdiaBreakdown');
+        //$scope.$apply();
     }
 }]);

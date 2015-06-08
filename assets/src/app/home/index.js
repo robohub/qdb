@@ -927,8 +927,9 @@ angular.module( 'beam.home', [
         DiagramHeaders.modelStr = "All";
         DiagramHeaders.vrtStr = "All";*/
         
-        $location.path('/faildiaVCCDrillDown').replace();
-        $scope.$apply();
+        //$location.path('/faildiaVCCDrillDown').replace();
+        $location.path('/faildiaVCCDrillDown');
+        //$scope.$apply();
     }
     function clickVCCPerdia(event) {
         var title = "Perdia VCC Ranking";
@@ -937,8 +938,8 @@ angular.module( 'beam.home', [
         DiagramHeaders.modelStr = "All";
         DiagramHeaders.vrtStr = "All";
         
-        $location.path('/perdiaBreakdown').replace();
-        $scope.$apply();
+        $location.path('/perdiaBreakdown');
+        //$scope.$apply();
     }
     function clickTPerdia(event) {
         var title = "Perdia VCC Ranking";
@@ -947,8 +948,8 @@ angular.module( 'beam.home', [
         DiagramHeaders.modelStr = "All";
         DiagramHeaders.vrtStr = "All";
         
-        $location.path('/perdiaBreakdown').replace();
-        $scope.$apply();
+        $location.path('/perdiaBreakdown');
+        //$scope.$apply();
     }
     function clickGPerdia(event) {
         var title = "Perdia VCC Ranking";
@@ -957,8 +958,8 @@ angular.module( 'beam.home', [
         DiagramHeaders.modelStr = "All";
         DiagramHeaders.vrtStr = "All";
         
-        $location.path('/perdiaBreakdown').replace();
-        $scope.$apply();
+        $location.path('/perdiaBreakdown');
+        //$scope.$apply();
     }
     function clickCDPerdia(event) {
         var title = "Perdia VCC Ranking";
@@ -967,8 +968,8 @@ angular.module( 'beam.home', [
         DiagramHeaders.modelStr = "All";
         DiagramHeaders.vrtStr = "All";
         
-        $location.path('/perdiaBreakdown').replace();
-        $scope.$apply();
+        $location.path('/perdiaBreakdown');
+        //$scope.$apply();
     }
     
     function clickTFaildia(event) {
@@ -980,12 +981,12 @@ angular.module( 'beam.home', [
         DiagramHeaders.modelStr = "All";
         DiagramHeaders.vrtStr = "All";
         if (isTvehicle) {
-            $location.path('/faildiaAPvlDrillDown').replace();
-            $scope.$apply();
+            $location.path('/faildiaAPvlDrillDown');
+            //$scope.$apply();
         }
         else {
-            $location.path('/faildiaAPvrtDrillDown').replace();
-            $scope.$apply();
+            $location.path('/faildiaAPvrtDrillDown');
+            //$scope.$apply();
         }
     }   
         
@@ -998,12 +999,12 @@ angular.module( 'beam.home', [
         DiagramHeaders.modelStr = "All";
         DiagramHeaders.vrtStr = "All";
         if (isGvehicle) {
-            $location.path('/faildiaAPVCGvlDrilldown').replace();
-            $scope.$apply();
+            $location.path('/faildiaAPVCGvlDrilldown');
+            //$scope.$apply();
         }
         else {
-            $location.path('/faildiaAPVCGvrtDrilldown').replace();
-            $scope.$apply();
+            $location.path('/faildiaAPVCGvrtDrilldown');
+            //$scope.$apply();
         }
     } 
 
@@ -1016,12 +1017,12 @@ angular.module( 'beam.home', [
         DiagramHeaders.modelStr = "All";
         DiagramHeaders.vrtStr = "All";
         if (isCDvehicle) {
-            $location.path('/faildiaAPVCCDvlDrilldown').replace();
-            $scope.$apply();
+            $location.path('/faildiaAPVCCDvlDrilldown');
+            //$scope.$apply();
         }
         else {
-            $location.path('/faildiaAPVCCDvrtDrilldown').replace();
-            $scope.$apply();
+            $location.path('/faildiaAPVCCDvrtDrilldown');
+            //$scope.$apply();
         }
     }
 });

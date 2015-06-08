@@ -152,18 +152,12 @@ angular.module("beam.historicVCCDvrt", [
         }
     ];
     chart2.write('div2');
-        
 
-    function redirect(event) {
-        DiagramHeaders.vrtStr = event.item.category;
-        $location.path('/toplist').replace();
-        $scope.$apply();
-    }
     
     $scope.viewToplist = function(str) {
         DiagramHeaders.tmyStr = '2009-2014';
         DiagramHeaders.modelStr = str;
-        $location.path('/toplist').replace();
-        $scope.$apply();
+        $location.path('/toplist');
+        //$scope.$apply();
     }
 }]);
